@@ -10,9 +10,7 @@ Every arr looks like:
 
 U need to convert x,y values into arrays index FIRST.
 */
-const NO_SHIP = 0;
-const SHIP = 1;
-const KILLED_SHIP = 2;
+
 
 function shoot(playerField, enemyField, x, y) {
     const index = xyToIndex(x, y, 4); 

@@ -12,6 +12,7 @@ function triggerCell(event) {
 }
 
 function addElementClasses(element, index, cellType, X_MAX) {
+    element.classList.add("field-cell");
     element.classList.add(`cell-${cellType}`);
     element.classList.add(`x-${Math.floor(index % X_MAX)}`);
     element.classList.add(`y-${Math.floor(index / X_MAX)}`);
@@ -34,6 +35,22 @@ function getElementBasedOnCell(cell) {
         checkbox.disabled = true;
         checkbox.setAttribute("type", "checkbox");
         return checkbox;
+    } else if (cell === NO_SHIP) {
+        const checkbox = document.createElement("input");
+        checkbox.disabled = true;
+        checkbox.setAttribute("type", "checkbox");
+        return checkbox;
+    } else if (cell === SHIP) {
+        const checkbox = document.createElement("input");
+        checkbox.disabled = true;
+        checkbox.checked = true;
+        checkbox.setAttribute("type", "checkbox");
+        return checkbox;
+    } else if (cell === KILLED_SHIP) {
+        const checkbox = document.createElement("input");
+        checkbox.disabled = true;
+        checkbox.indeterminate = true;
+        checkbox.setAttribute("type", "checkbox");
     }
 }
 
