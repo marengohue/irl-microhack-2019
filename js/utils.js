@@ -5,7 +5,7 @@ function xyToIndex(x, y, width) {
     else if (typeof y !== 'number' || y < 0 && y >= width) {
         throw new Error('change y');
     }
-    return finalInt = x + (y * width);
+    return x + (y * width);
 }
 
 function indexToXy(index, width) {
