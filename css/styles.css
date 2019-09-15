@@ -1,0 +1,24 @@
+.shoot-button {
+    margin-top: 30px;
+}
+
+.cell-1 {
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    margin: 5px;
+}
+
+.cell-0 {
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    margin: 5px;
+}
+
+.cell-2 {
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    margin: 5px;
+}
