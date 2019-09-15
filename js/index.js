@@ -45,13 +45,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (isGameOver(enemyShips)) {
                     shootButton.remove();
                     alert('YOU WIN!');
+                    return;
                 }
 
                 const point = getRandomPoint(enemyViewOfMe);
                 shoot(enemyViewOfMe, myShips, point[0], point[1], width);
-                if (isGameOver(enemyShips)) {
+                if (isGameOver(myShips)) {
                     shootButton.remove();
                     alert('YOU LOSE!');
+                    return;
                 }
 
                 renderGameField(myShips, myViewOfEnemy);

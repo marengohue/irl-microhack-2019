@@ -69,6 +69,7 @@ function getElementBasedOnCell(cell) {
         checkbox.disabled = true;
         checkbox.indeterminate = true;
         checkbox.setAttribute("type", "checkbox");
+        return checkbox;
     }
 }
 
