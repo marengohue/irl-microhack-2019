@@ -7,3 +7,10 @@ function xyToIndex(x, y, width) {
     }
     return finalInt = x + (y * width);
 }
+
+function indexToXy(index, width) {
+    return [
+        index % width,
+        index / width
+    ];
+}
