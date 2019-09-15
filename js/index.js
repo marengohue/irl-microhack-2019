@@ -22,6 +22,10 @@ function getRandomPoint(enemyViewOfMe) {
     }
 }
 
+function isGameOver(playerField) {
+    return !playerField.some(cell => cell === SHIP);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const myShips = getRandomField(shipCount, width);
     const myViewOfEnemy = Array(width * width).fill(UNKNOWN_CELL);
@@ -38,8 +42,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 const x = parseInt(lastChecked.classList[2].split('-')[1]);
                 const y = parseInt(lastChecked.classList[3].split('-')[1]);
                 shoot(myViewOfEnemy, enemyShips, x, y, width);
+                if (isGameOver(enemyShips)) {
+                    shootButton.remove();
+                    alert('YOU WIN!');
+                }
+
                 const point = getRandomPoint(enemyViewOfMe);
                 shoot(enemyViewOfMe, myShips, point[0], point[1], width);
+                if (isGameOver(enemyShips)) {
+                    shootButton.remove();
+                    alert('YOU LOSE!');
+                }
+
                 renderGameField(myShips, myViewOfEnemy);
             }
         })
