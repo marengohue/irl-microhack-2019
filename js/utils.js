@@ -10,7 +10,7 @@ function xyToIndex(x, y, width) {
 
 function indexToXy(index, width) {
     return [
-        index % width,
-        index / width
+        Math.floor(index % width),
+        Math.floor(index / width)
     ];
 }
