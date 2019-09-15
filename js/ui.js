@@ -11,6 +11,24 @@ function triggerCell(event) {
     lastChecked = event.target;
 }
 
+function renderGameField(myShips, myViewOfEnemy) {
+    const enemyShipsElement = document.querySelector(".game-container .enemy-ships");
+    if (enemyShipsElement) {
+        while (enemyShipsElement.hasChildNodes()) {
+            enemyShipsElement.removeChild(enemyShipsElement.lastChild);
+        }
+        fillFields(enemyShipsElement, myViewOfEnemy, width);
+    }
+    
+    const myShipsElement = document.querySelector(".game-container .your-ships");
+    if (myShipsElement) {
+        while (myShipsElement.hasChildNodes()) {
+            myShipsElement.removeChild(myShipsElement.lastChild);
+        }
+        fillFields(myShipsElement, myShips, width);
+    }
+}
+
 function addElementClasses(element, index, cellType, X_MAX) {
     element.classList.add("field-cell");
     element.classList.add(`cell-${cellType}`);

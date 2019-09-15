@@ -20,14 +20,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const enemyShips = getRandomField(shipCount, width);
     const enemyViewOfMe = Array(width * width).fill(UNKNOWN_CELL);
 
-    const enemyShipsElement = document.querySelector(".game-container .enemy-ships");
-    if (enemyShipsElement) {
-        fillFields(enemyShipsElement, myViewOfEnemy, width);
-    }
-    
-    const myShipsElement = document.querySelector(".game-container .your-ships");
-    if (myShipsElement) {
-        fillFields(myShipsElement, myShips, width);
-    }
+    renderGameField(myShips, myViewOfEnemy);
 
+    const shootButton = document.querySelector("#shoot-button");
+    if (shootButton) {
+        shootButton.addEventListener("click", () => {
+            if (lastChecked) {
+                const x = parseInt(lastChecked.classList[2].split('-')[1])
+                const y = parseInt(lastChecked.classList[3].split('-')[1])
+                shoot(myViewOfEnemy, enemyShips, x, y, width);
+                renderGameField(myShips, myViewOfEnemy);
+            }
+        })
+    }
 });
